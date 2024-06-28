@@ -1,5 +1,5 @@
 # Start your image with a node base image
-FROM node:current-alpine
+FROM node:alpine
 
 # The /app directory should act as the main application directory
 WORKDIR /app
@@ -12,7 +12,6 @@ RUN npm install
 
 #  Копируем все файлы из текущей директории в /app внутри контейнера
 COPY . .
-
 # Сборка React приложения
 RUN npm run build
 
@@ -20,4 +19,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Start the app using serve command
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
